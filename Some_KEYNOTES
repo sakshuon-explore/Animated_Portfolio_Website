@@ -1,1 +1,58 @@
 Task is to create Animated Portfolio Website.
+To embed a specific location on the Google Map for India (in your case, Shaniwar Peth, Madhavnagar, Sangli), you need to replace the src URL in the iframe with the Google Maps link corresponding to that location. 
+### HTML for Google Map Embedding:
+html
+<!-- Google Map -->
+<section class="map-section">
+    <div class="map">
+        <!-- Replace the iframe src with the URL of the location you want -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d136423.9057754202!2d74.55334734820027!3d16.846444759095947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd50a945f974fb5%3A0x41b7f11c8b54b727!2sShaniwar%20Peth%2C%20Madhavnagar%2C%20Sangli%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sin!4v1603747063326" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+1. *URL for Embedding Google Maps:*
+   - The src URL for the iframe is the one you get when you search for a place on Google Maps and click on the "Embed a map" option.
+   - The link provided (https://www.google.com/search?q=shaniwar+peth+madhavnagar+sangli&oq=shaniwar+peth&madhavnagar+sangli...) is a search URL, but for embedding, it needs to be converted to an embed URL like the one shown above.
+
+2. *Width and Height of Map:*
+   - You can adjust the width and height of the iframe to match the design of your website. In this example, the width is 600px and height is 450px.
+
+3. *Attributes:*
+   - allowfullscreen="" ensures that the map can be viewed in fullscreen.
+   - loading="lazy" defers the loading of the map until it's needed, improving page load speed.
+
+---
+
+### Optional: If You Want to Use JavaScript for Custom Map Handling
+
+If you want to use JavaScript to customize the behavior of the map or control it dynamically, you can use the Google Maps JavaScript API. Here's an example of how to integrate it:
+
+html
+<!-- Include Google Maps JavaScript API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<script>
+    function initMap() {
+        var location = { lat: 16.8464, lng: 74.5533 };  // Latitude and Longitude for Shaniwar Peth, Madhavnagar, Sangli
+        
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: location
+        });
+        
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: 'Shaniwar Peth, Madhavnagar, Sangli'
+        });
+    }
+</script>
+- Ensure your Google Maps API key is set up correctly by following the [Google Maps API documentation](https://developers.google.com/maps/documentation/javascript/get-api-key).
+- The iframe method is simpler and more common for embedding maps on websites, while the JavaScript API provides greater flexibility for interaction with the map (e.g., custom markers, zoom, and events).
